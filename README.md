@@ -84,4 +84,235 @@ SWITCH(
 
 ### Price Category
 
-Grouped products by price range
+Grouped products by price range.
+
+```DAX
+Price Category =
+SWITCH(
+    TRUE(),
+    'Chocolate_Sales_in_2022–2023'[Price_per_Box] < 5,"Normal",
+    'Chocolate_Sales_in_2022–2023'[Price_per_Box] < 10,"Standard",
+    "Premium"
+)
+```
+
+### Discount Category
+
+Segmented discount percentages into business-friendly categories.
+
+```DAX
+Discount Category =
+SWITCH(
+    TRUE(),
+    'Chocolate_Sales_in_2022–2023'[Discount_Pct] <= 5,"Low",
+    'Chocolate_Sales_in_2022–2023'[Discount_Pct] <= 15,"Medium",
+    "High"
+)
+```
+
+### Marketing Category
+
+Classified marketing spend levels.
+
+```DAX
+Marketing Category =
+SWITCH(
+    TRUE(),
+    'Chocolate_Sales_in_2022–2023'[Marketing_Spend] < 50,"Low",
+    'Chocolate_Sales_in_2022–2023'[Marketing_Spend] < 100,"Medium",
+    "High"
+)
+```
+
+---
+
+# Measures Created
+
+The following DAX measures were developed to support reporting and analysis.
+
+### Total Sales
+
+```DAX
+Total Sales =
+SUM('Chocolate_Sales_in_2022–2023'[Amount])
+```
+
+### Total Orders
+
+```DAX
+Total Orders =
+DISTINCTCOUNT('Chocolate_Sales_in_2022–2023'[Order_ID])
+```
+
+### Total Marketing Spend
+
+```DAX
+Total Marketing =
+SUM('Chocolate_Sales_in_2022–2023'[Marketing_Spend])
+```
+
+### Total Boxes Shipped
+
+```DAX
+Total Boxes Shipped =
+SUM('Chocolate_Sales_in_2022–2023'[Boxes_Shipped])
+```
+
+### Revenue Per Box
+
+```DAX
+Revenue Per Box =
+DIVIDE(
+    [Total Sales],
+    [Total Boxes Shipped]
+)
+```
+
+### Net Marketing Profit
+
+```DAX
+Net Marketing Profit =
+[Total Sales] - [Total Marketing]
+```
+
+### Marketing ROI
+
+```DAX
+Marketing ROI =
+DIVIDE(
+    [Total Sales] - [Total Marketing],
+    [Total Marketing]
+)
+```
+
+### Average Discount
+
+```DAX
+Avg Discount =
+AVERAGE('Chocolate_Sales_in_2022–2023'[Discount_Pct]) / 100
+```
+
+---
+
+# Data Modeling
+
+### Date Table
+
+Created a dedicated Date Table to support:
+
+- Monthly trend analysis
+- Quarterly analysis
+- Year-over-Year comparison
+- Time intelligence calculations
+
+### Star Schema
+
+Since the dataset originally contained a single table, additional dimension tables were created to implement a proper star schema.
+
+Dimension Tables:
+
+- Product
+- Country
+- Channel
+- Salesperson
+- Date Table
+
+Relationships were established using **One-to-Many (1:*)** relationships between dimension tables and the fact table.
+
+---
+
+# Dashboard Development
+
+Three interactive dashboard pages were developed.
+
+## 1. Executive Dashboard
+
+Provides an overall business performance summary.
+
+Visuals Included:
+- KPI Cards
+- Monthly Sales Trend
+- Top Products
+- Top Salespersons
+- Sales by Country
+- Channel Contribution
+- Marketing Spend by Channel
+- Marketing Spend vs Sales
+- Geographic Sales Distribution
+- Business Summary Table
+
+---
+
+## 2. Product Analysis
+
+Focused on product-level performance.
+
+Visuals Included:
+- Revenue by Product
+- Boxes Shipped by Product
+- Product Marketing Analysis
+- Discount Impact on Product Sales
+- Product Performance Summary Table
+
+---
+
+## 3. Salesperson Performance
+
+Focused on revenue contribution and performance comparison among salespersons.
+
+Visuals Included:
+- Sales by Salesperson
+- Revenue Contribution Analysis
+- Salesperson Performance Matrix
+- Country-wise Salesperson Analysis
+
+---
+
+# Interactive Features
+
+The dashboard includes the following Power BI features:
+
+✅ Filters
+
+✅ Slicers
+
+✅ Drill Down
+
+✅ Drill Through
+
+✅ Page Navigation Buttons
+
+✅ Bookmarks
+
+✅ Cross Filtering
+
+✅ Interactive Visualizations
+
+---
+
+# Business Insights Generated
+
+The dashboard enables users to:
+
+- Track overall sales performance.
+- Identify top-performing products.
+- Evaluate salesperson performance.
+- Compare sales across countries and channels.
+- Analyze marketing effectiveness.
+- Monitor product demand and shipment trends.
+- Explore sales data using interactive filtering and drill-down capabilities.
+
+---
+
+# Tools Used
+
+- Microsoft Excel
+- Power Query
+- Power BI Desktop
+- DAX (Data Analysis Expressions)
+
+---
+
+# Outcome
+
+The final solution transformed a raw sales dataset into a fully interactive business intelligence dashboard, enabling data-driven decision-making through effective data cleaning, modeling, visualization, and performance analysis.

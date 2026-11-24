@@ -5,7 +5,21 @@
 This project focuses on cleaning, transforming, modeling, and visualizing a chocolate sales dataset using Excel, Power Query, and Power BI. The objective was to convert raw sales data into an interactive dashboard that provides actionable business insights related to sales performance, products, marketing effectiveness, countries, channels, and salesperson performance.
 
 ---
+## Dataset Source
 
+The dataset used in this project was obtained from Kaggle:
+
+- **Chocolate Sales in 2022–2023**
+  - Author: Arjun Mehta
+  - Source: [Chocolate Sales in 2022–2023](https://www.kaggle.com/datasets/arjunmehta1992/chocolate-sales-in-20222023)
+
+The dataset contains chocolate sales transactions across multiple countries, products, sales channels, and salespersons, and was used for data cleaning, transformation, modeling, and dashboard development in Power BI.
+
+---
+
+## Disclaimer
+
+This project was created for educational and portfolio purposes. The dataset was sourced from Kaggle and all analysis, data cleaning, data modeling, DAX calculations, and dashboard design were performed independently as part of this project.
 # Data Cleaning Process
 
 The dataset was initially analyzed and cleaned to improve data quality and ensure accurate reporting.

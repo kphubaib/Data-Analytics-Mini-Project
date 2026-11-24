@@ -1,4 +1,4 @@
-# 🍫 Chocolate Sales Analysis Dashboard
+# 🍫 Chocolate Sales Analysis Dashboard - Mini Project
 
 ## Project Overview
 
